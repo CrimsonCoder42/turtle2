@@ -1,8 +1,10 @@
-from turtle import Turtle, Screen
+import turtle as t
 import random
 
-timmy = Turtle()
-screen = Screen()
+timmy = t.Turtle()
+t.colormode(255)
+
+screen = t.Screen()
 
 colors = [
     "CornflowerBlue",
@@ -16,29 +18,23 @@ colors = [
 ]
 
 
-def right_forward():
-    timmy.right(90)
-    timmy.forward(25)
-
-def left_forward():
-    timmy.left(90)
-    timmy.forward(25)
-
-
-def rand_walk(n):
-    for _ in range(n):
-        num = random.randint(0, 20)
-
-        if num % 2 == 0:
-            right_forward()
-            timmy.color(random.choice(colors))
-        if num % 3 == 0:
-            left_forward()
-            timmy.color(random.choice(colors))
+def rand_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    color = (r, g, b)
+    return color
 
 
-rand_walk(20)
+def spyro(a):  # set color mode to accept RGB values in range 0-1
+    n = 10
+    for _ in range(int(360 / a)):
+        timmy.speed("fastest")
+        timmy.color(rand_color())
+        timmy.circle(-100)
+        timmy.right(n)
 
+spyro(5)
 
 screen.exitonclick()
 
