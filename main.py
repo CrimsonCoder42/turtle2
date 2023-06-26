@@ -35,7 +35,7 @@ def spyro(a):  # set color mode to accept RGB values in range 0-1
         timmy.right(n)
 
 
-spyro(5)
+spyro(4)
 
 screen.exitonclick()
 
